@@ -274,72 +274,94 @@
                 display: none;
             }
         }
-   /* CONTACT SECTION */
+/* CONTACT SECTION */
 .contact-section {
-  background: #f1f1f1;
-  padding: 50px 20px;
+  background: #f5f5f5;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.contact-section h2 {
-  font-size: 28px;
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-container h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.contact-container p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contact-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-box .form-group {
   margin-bottom: 20px;
-  color: #222;
 }
 
-#contactForm {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#contactForm input,
-#contactForm textarea {
-  padding: 12px 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   font-size: 15px;
-  resize: vertical;
+  background-color: #fafafa;
 }
 
-#contactForm button {
-  padding: 12px;
-  background-color: #222;
+.contact-box input:focus,
+.contact-box textarea:focus {
+  border-color: #333;
+  outline: none;
+  background: #fff;
+}
+
+.contact-box button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1f1f1f, #000);
   color: #fff;
-  font-weight: 600;
   border: none;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
-  border-radius: 5px;
+  transition: 0.3s;
 }
 
-#contactForm button:hover {
-  background-color: #000;
+.contact-box button:hover {
+  background: #333;
 }
 
 #form-status {
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 15px;
   color: green;
+  font-size: 14px;
 }
 
 /* FOOTER */
 .footer {
-  background-color: #111;
-  color: #eee;
-  padding: 50px 20px 25px;
-  font-size: 14px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  color: #ddd;
+  padding: 60px 20px 30px;
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
+  gap: 40px;
 }
 
 .footer-about,
@@ -348,24 +370,27 @@
   flex: 1 1 250px;
 }
 
-.footer-about h3,
+.footer-about h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
 .footer-links h4,
 .footer-contact h4 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  color: #fff;
+  color: #eee;
+  margin-bottom: 10px;
 }
 
 .footer-about p,
 .footer-contact p {
-  color: #ccc;
-  line-height: 1.5;
+  font-size: 14px;
+  color: #bbb;
 }
 
 .footer-links ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .footer-links li {
@@ -373,9 +398,9 @@
 }
 
 .footer-links a {
-  color: #ccc;
   text-decoration: none;
-  transition: color 0.3s;
+  color: #ccc;
+  transition: 0.3s;
 }
 
 .footer-links a:hover {
@@ -384,12 +409,25 @@
 
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid #333;
-  padding-top: 15px;
-  margin-top: 30px;
   font-size: 13px;
   color: #888;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-box {
+    padding: 20px;
+  }
+}
+
 
     </style>
 </head>
@@ -476,51 +514,62 @@
         </div>
     </section>
     
-<!-- Contact Form Section -->
+<!-- Contact Section -->
 <section id="contact" class="contact-section">
-  <h2>Contact Us</h2>
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-    <p id="form-status"></p>
-  </form>
+  <div class="contact-container">
+    <h2>Get In Touch</h2>
+    <p>We'd love to hear from you. Drop a message below.</p>
+    <form id="contactForm" class="contact-box">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit">🚀 Send Message</button>
+      <p id="form-status"></p>
+    </form>
+  </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer Section -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-about">
       <h3>Forge Designers</h3>
-      <p>Crafting your ideas into reality with creative design solutions.</p>
+      <p>Designing brands, shaping identities. Let's build something unforgettable.</p>
     </div>
     <div class="footer-links">
-      <h4>Quick Links</h4>
+      <h4>Explore</h4>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#portfolio">🎨 Portfolio</a></li>
+        <li><a href="#services">🛠 Services</a></li>
+        <li><a href="#contact">📩 Contact</a></li>
       </ul>
     </div>
     <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>Email: hello@forgedesigners.com</p>
-      <p>Phone: +91 12345 67890</p>
+      <h4>Reach Us</h4>
+      <p>📧 hello@forgedesigners.com</p>
+      <p>📞 +91 12345 67890</p>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2025 Forge Designers. All rights reserved.</p>
   </div>
 </footer>
+
 <script>
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    document.getElementById("form-status").textContent = "Thanks for reaching out!";            
+    document.getElementById("form-status").textContent = "✅ Message sent successfully!";
     this.reset();
   });
 </script>
+
 
 </body>
 
