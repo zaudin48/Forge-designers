@@ -79,3 +79,44 @@ window.addEventListener("scroll", () => {
     }
   });
 
+
+function getBackgroundColorBrightness(el) {
+  const style = window.getComputedStyle(el);
+  const bgColor = style.backgroundColor;
+
+  // Extract RGB values
+  const rgb = bgColor.match(/\d+/g);
+  if (!rgb) return 255; // fallback to white
+
+  const [r, g, b] = rgb.map(Number);
+
+  // Use luminance formula to determine brightness
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness;
+}
+
+function invertTextColorBasedOnBackground() {
+  const target = document.querySelector(".navbar"); // or any container
+  const logoText = document.querySelector(".logo-text");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  const brightness = getBackgroundColorBrightness(target);
+
+  if (brightness > 180) {
+    // Light background → dark text
+    logoText.style.color = "#111";
+    logoText.querySelector("span").style.color = "#11516c";
+    navLinks.forEach((link) => (link.style.color = "#111"));
+  } else {
+    // Dark background → white text
+    logoText.style.color = "#fff";
+    logoText.querySelector("span").style.color = "#57b7e5"; // or white
+    navLinks.forEach((link) => (link.style.color = "#fff"));
+  }
+}
+
+// Trigger on scroll (or resize if needed)
+window.addEventListener("scroll", invertTextColorBasedOnBackground);
+window.addEventListener("load", invertTextColorBasedOnBackground);
+
+
