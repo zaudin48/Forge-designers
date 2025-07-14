@@ -38,52 +38,6 @@ document.getElementById("contactForm")?.addEventListener("submit", function (e) 
   this.reset();
 });
 
-// --- Auto Horizontal Scroll for Project Grid ---
-/* const wrapper = document.querySelector('.project-grid'); */
-/* let scrollAmount = 0;
-const scrollStep = 260; // Adjust based on card size
-const delay = 4000;
-let autoScroll;
-
-function startAutoScroll() {
-  autoScroll = setInterval(() => {
-    scrollAmount += scrollStep;
-
-    if (scrollAmount + wrapper.clientWidth >= wrapper.scrollWidth) {
-      scrollAmount = 0;
-      wrapper.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      wrapper.scrollBy({ left: scrollStep, behavior: 'smooth' });
-    }
-  }, delay);
-}
-
-function stopAutoScroll() {
-  clearInterval(autoScroll);
-}
-
-startAutoScroll();
-
-wrapper.addEventListener('mouseenter', stopAutoScroll);
-wrapper.addEventListener('mouseleave', startAutoScroll);
-const navLinks = document.querySelectorAll('.mobile-nav .nav-item');
-
-navLinks.forEach(link => {
-  if (link.getAttribute('href') === window.location.hash) {
-    navLinks.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-  }
-});
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 30) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
- */
-
 function getBackgroundColorBrightness(el) {
   const style = window.getComputedStyle(el);
   const bgColor = style.backgroundColor;
@@ -165,3 +119,86 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('.logo-img').style.transform = 'rotate(0)';
             });
         });
+        document.addEventListener("DOMContentLoaded", () => {
+  const mobileNav = document.querySelector(".mobile-nav");
+  let lastScroll = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScroll && currentScroll > 60) {
+      mobileNav.style.transform = "translateY(100%)";
+    } else {
+      mobileNav.style.transform = "translateY(0)";
+    }
+
+    lastScroll = currentScroll;
+  });
+});
+lucide.createIcons();
+document.querySelectorAll('.mobile-nav .nav-item').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelectorAll('.mobile-nav .nav-item').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneInput = document.querySelector("#phone");
+
+  if (phoneInput) {
+    window.intlTelInput(phoneInput, {
+      initialCountry: "in",
+      separateDialCode: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js", // enables formatting/validation
+    });
+  }
+});
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    message: document.getElementById("message").value.trim()
+  };
+
+  fetch("YOUR_WEB_APP_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+  .then(() => {
+    document.getElementById("form-status").textContent = "✅ Message sent!";
+    document.getElementById("contactForm").reset();
+  })
+  .catch((err) => {
+    console.error("Error:", err);
+    document.getElementById("form-status").textContent = "❌ Failed to send.";
+  });
+});
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+    })
+      .then(() => {
+        status.textContent = "✅ Message sent successfully!";
+        status.style.color = "green";
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = "❌ Failed to send message.";
+        status.style.color = "red";
+      });
+  });
