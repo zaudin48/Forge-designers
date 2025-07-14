@@ -120,19 +120,3 @@ window.addEventListener("scroll", invertTextColorBasedOnBackground);
 window.addEventListener("load", invertTextColorBasedOnBackground);
 
 
-let lastScrollTop = 0;
-const navbar = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-
-  if (currentScroll > lastScrollTop && currentScroll > 50) {
-    // Scrolling down — hide navbar
-    navbar.style.transform = "translateY(-100%)";
-  } else {
-    // Scrolling up — show navbar
-    navbar.style.transform = "translateY(0)";
-  }
-
-  lastScrollTop = currentScroll;
-});

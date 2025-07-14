@@ -45,12 +45,23 @@
 }
 
 .logo-img {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ffffff30;
+  object-fit: contain;
+   background-color: #1b1a1a;
+  /* padding: 4px;
+  border: 1.5px solid #ccc; */ 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* subtle */
 }
+
+.logo-header {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 16px;
+}
+
 
 .logo-text {
   font-size: 1.6rem;
@@ -58,6 +69,7 @@
   color: #000000;
   font-family: 'Poppins', sans-serif;
   margin: 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.569);
 }
 
 .logo-text span {
@@ -355,6 +367,9 @@
      }
      .hero p{
         font-size: 16px;
+     }
+     #main-header{
+        position: absolute;
      }
     }
 
