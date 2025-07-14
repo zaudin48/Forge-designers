@@ -10,74 +10,168 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="script.js" defer></script>
 
 </head>
 
 <body>
- <header id="main-header" class="navbar">
-  <div class="logo-header">
-    <img src="logo2.png" alt="Forge Designers Logo" class="logo-img" />
-    <h1 class="logo-text"><span>Forge</span> Designers</h1>
-  </div>
+  <header id="main-header" class="navbar">
+    <div class="logo-header">
+      <img src="logo2.png" alt="Forge Designers Logo" class="logo-img" />
+      <h1 class="logo-text"><span>Forge</span> Designers</h1>
+    </div>
 
-  <nav class="desktop-nav">
-    <a href="#">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <nav class="desktop-nav">
+      <a href="#">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <section class="hero">
-
-    <h1>We Design Future-Ready Buildings</h1>
-    <p>Turning your architectural dreams into concrete reality with elegance and precision.</p>
-    <a href="#projects"><button class="btn">Discover Our Work</button></a>
+    <div class="hero-content">
+      <h1>We Design Future-Ready Buildings</h1>
+      <p>Turning your architectural dreams into concrete reality with elegance and precision.</p>
+      <a href="#projects"><button class="btn">Discover Our Work</button></a>
+    </div>
     <div class="scroll-hint">⇆ Swipe to see more</div>
 
   </section>
 
-  <section id="about" class="about">
-    <h2>We’re Experienced in This Field</h2>
-    <p>
-      Forge Designers delivers bold, modern, and sustainable architectural solutions, combining technology with
-      creativity to transform spaces.
-    </p>
-    <div class="stats">
-      <div class="stat-item">28+ Years Experience</div>
-      <div class="stat-item">894+ Projects Completed</div>
-      <div class="stat-item">42+ Trusted Partners</div>
+<section id="about" class="about-section">
+  <div class="about-container">
+    <h2 class="section-title animate-fade-in">WE BUILD SPACES THAT <span>INSPIRE</span></h2>
+    
+    <div class="about-grid">
+      <div class="about-card animate-slide-left">
+        <h3>Our Philosophy</h3>
+        <p>
+          ForgeDesigners exists to <strong>challenge conventional architecture</strong>. We merge <strong>sustainability</strong>, <strong>innovation</strong>, and <strong>brutal honesty</strong> to create spaces that don’t just look good—they <em>work harder</em> than you do.
+        </p>
+      </div>
+      
+      <div class="about-card animate-slide-right">
+        <h3>What We Do</h3>
+        <p>
+          From <strong>zero-energy homes</strong> to <strong>commercial spaces that boost productivity</strong>, we design for humans—not just blueprints. Every project gets our signature <strong>3D walkthroughs</strong>, <strong>eco-audits</strong>, and <strong>obsessive attention to detail</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats Bar with Counter Animation -->
+    <div class="stats-bar">
+      <div class="stat animate-counter">
+        <div class="stat-number" data-target="28">0</div>
+        <div class="stat-label">Years in the Trenches</div>
+      </div>
+      <div class="stat animate-counter">
+        <div class="stat-number" data-target="894">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat animate-counter">
+        <div class="stat-number" data-target="100">1</div>
+        <div class="stat-label">Client Retention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="projects" class="portfolio">
+    <h2>Our Work</h2>
+
+    <div class="scroll-wrapper">
+      <div class="project-row">
+        <a href="project.html?id=1" class="project-card">
+          <img src="img2.jpeg" alt="Project 1">
+          <div class="overlay">
+            <h3>Project 1</h3>
+          </div>
+        </a>
+        <a href="project.html?id=2" class="project-card">
+          <img src="img2.jpeg" alt="Project 2">
+          <div class="overlay">
+            <h3>Project 2</h3>
+          </div>
+        </a>
+        <a href="project.html?id=3" class="project-card">
+          <img src="img2.jpeg" alt="Project 3">
+          <div class="overlay">
+            <h3>Project 3</h3>
+          </div>
+        </a>
+        <a href="project.html?id=4" class="project-card">
+          <img src="img2.jpeg" alt="Project 4">
+          <div class="overlay">
+            <h3>Project 4</h3>
+          </div>
+        </a>
+        <a href="project.html?id=5" class="project-card">
+          <img src="img2.jpeg" alt="Project 5">
+          <div class="overlay">
+            <h3>Project 5</h3>
+          </div>
+        </a>
+        <!-- Add more projects if needed -->
+      </div>
     </div>
   </section>
-<section id="projects" class="portfolio">
-  <h2>Our Work</h2>
-  
-  <div class="scroll-wrapper">
-    <div class="project-row">
-      <a href="project.html?id=1" class="project-card">
-        <img src="img2.jpeg" alt="Project 1">
-        <div class="overlay"><h3>Project 1</h3></div>
-      </a>
-      <a href="project.html?id=2" class="project-card">
-        <img src="img2.jpeg" alt="Project 2">
-        <div class="overlay"><h3>Project 2</h3></div>
-      </a>
-      <a href="project.html?id=3" class="project-card">
-        <img src="img2.jpeg" alt="Project 3">
-        <div class="overlay"><h3>Project 3</h3></div>
-      </a>
-      <a href="project.html?id=4" class="project-card">
-        <img src="img2.jpeg" alt="Project 4">
-        <div class="overlay"><h3>Project 4</h3></div>
-      </a>
-      <a href="project.html?id=5" class="project-card">
-        <img src="img2.jpeg" alt="Project 5">
-        <div class="overlay"><h3>Project 5</h3></div>
-      </a>
-      <!-- Add more projects if needed -->
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Entitlement</h3>
+      <p>
+        We identify jurisdictional requirements, zoning conditions, public hearings, and site capacities before design begins. Every location is evaluated thoroughly with proper due diligence.
+      </p>
     </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Architectural Design</h3>
+      <p>
+        Our design approach avoids cookie-cutter methods. We collaborate with clients to explore innovative materials, methods, and ideas that align with their vision and goals.
+      </p>
+    </div>
+
+    <div class="service-card">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Architectural Illustration</h3>
+      <p>
+        From conceptual sketches to photo-realistic renderings and animations, we visually communicate ideas to assist with financing, marketing, and stakeholder engagement.
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Construction Administration</h3>
+      <p>
+        We support contractors during construction, conduct site visits, respond to RFIs, and manage changes to ensure smooth execution and represent the owner's interests.
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Interior Design</h3>
+      <p>
+        Our team collaborates closely with clients to choose colors, materials, and textures that define and elevate the space’s identity with thoughtful interior concepts.
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+       <i class="fa-solid fa-gavel service-icon"></i>
+      <h3>Permitting</h3>
+      <p>
+        With deep knowledge of planning and zoning requirements, we streamline the permit process using our well-established relationships with local authorities.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -158,28 +252,28 @@
       <p>© 2025 Forge Designers. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
-
-<div class="mobile-nav">
-  <a href="#home" class="nav-item">
-    <i class="icon">🏠</i>
-    <span>Home</span>
-  </a>
-  <a href="#projects" class="nav-item">
-    <i class="icon">📁</i>
-    <span>Work</span>
-  </a>
-  <a href="#partners" class="nav-item">
-    <i class="icon">🤝</i>
-    <span>Partners</span>
-  </a>
-  <a href="#contact" class="nav-item">
-    <i class="icon">📞</i>
-    <span>Contact</span>
-  </a>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <div class="mobile-nav">
+    <a href="#main-header" class="nav-item">
+      <i class="icon">🏠</i>
+      <span>Home</span>
+    </a>
+    <a href="#projects" class="nav-item">
+      <i class="icon">📁</i>
+      <span>Work</span>
+    </a>
+    <a href="#services" class="nav-item">
+      <i class="icon">🤝</i>
+      <span>Services</span>
+    </a>
+    <a href="#contact" class="nav-item">
+      <i class="icon">📞</i>
+      <span>Contact</span>
+    </a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
 </body>
 

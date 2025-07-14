@@ -24,7 +24,11 @@ if (project_id && projectData[project_id]) {
     imageContainer.appendChild(img);
   });
 } else {
-  document.getElementById("project-content").innerHTML = "<h2>Project not found</h2>";
+  const contentEl = document.getElementById("project-content");
+if (contentEl) {
+  contentEl.innerHTML = "<h2>Project not found</h2>";
+}
+
 }
 
 // --- Contact Form Handler ---
@@ -36,7 +40,7 @@ document.getElementById("contactForm")?.addEventListener("submit", function (e) 
 
 // --- Auto Horizontal Scroll for Project Grid ---
 /* const wrapper = document.querySelector('.project-grid'); */
-let scrollAmount = 0;
+/* let scrollAmount = 0;
 const scrollStep = 260; // Adjust based on card size
 const delay = 4000;
 let autoScroll;
@@ -78,7 +82,7 @@ window.addEventListener("scroll", () => {
       navbar.classList.remove("scrolled");
     }
   });
-
+ */
 
 function getBackgroundColorBrightness(el) {
   const style = window.getComputedStyle(el);
@@ -120,3 +124,44 @@ window.addEventListener("scroll", invertTextColorBasedOnBackground);
 window.addEventListener("load", invertTextColorBasedOnBackground);
 
 
+  VanillaTilt.init(document.querySelectorAll(".service-card"), {
+    max: 8,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+  });
+document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('main-header');
+            let lastScroll = 0;
+            const scrollThreshold = 100; // Pixels to scroll before hiding
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                // At top of page - always show
+                if (currentScroll <= 0) {
+                    navbar.classList.remove('navbar-hidden');
+                    return;
+                }
+                
+                // Scrolling down - hide
+                if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+                    navbar.classList.add('navbar-hidden');
+                } 
+                // Scrolling up - show
+                else if (currentScroll < lastScroll) {
+                    navbar.classList.remove('navbar-hidden');
+                }
+                
+                lastScroll = currentScroll;
+            });
+            
+            // Logo hover effect
+            const logo = document.querySelector('.logo-header');
+            logo.addEventListener('mouseenter', () => {
+                document.querySelector('.logo-img').style.transform = 'rotate(-10deg)';
+            });
+            logo.addEventListener('mouseleave', () => {
+                document.querySelector('.logo-img').style.transform = 'rotate(0)';
+            });
+        });
