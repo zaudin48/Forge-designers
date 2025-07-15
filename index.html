@@ -197,17 +197,17 @@
         action="https://script.google.com/macros/s/AKfycbyxHxES1CjY6BD4U5WeaP1320XGyO-c53gce-m8ASWEfSjWL1WvxjEig4ZJAN2TFB8C/exec"
         class="contact-box" method="post">
         <div class="form-group">
-          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="text"  id="name" name="name" placeholder="Your Name" required />
         </div>
         <div class="form-group">
-          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="email" id="email" name="email" placeholder="Your Email" required />
         </div>
         <div class="form-group">
           <input type="tel" id="phone" name="phone" placeholder="Phone number" required />
         </div>
 
         <div class="form-group">
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
         </div>
         <button type="submit"> Send Message</button>
         <p id="form-status"></p>
