@@ -152,35 +152,20 @@ document.addEventListener("DOMContentLoaded", function () {
       utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js", // enables formatting/validation
     });
   }
-});
+});  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById("form-status");
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data
-      })
-      .then(response => {
-        if (response.ok) {
-          status.textContent = "✅ Message sent successfully!";
-          status.style.color = "green";
-          form.reset();
-        } else {
-          throw new Error('Network error');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        status.textContent = "❌ Failed to send message.";
-        status.style.color = "red";
-      });
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+    })
+    .then(() => {
+      status.textContent = "✅ Message sent successfully!";
+      form.reset();
+    })
+    .catch(() => {
+      status.textContent = "❌ Failed to send message.";
     });
   });
-
