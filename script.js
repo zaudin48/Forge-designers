@@ -163,7 +163,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     message: document.getElementById("message").value.trim()
   };
 
-  fetch("YOUR_DEPLOYED_SCRIPT_URL_HERE", {
+  fetch(" https://script.google.com/macros/s/AKfycbxj6rRI4OmzVrJavEE8Kd7BaL4ozxM5RMUVkQFKOgCRrYbiq_KsRj-Nw4hc60_7tAEn/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
