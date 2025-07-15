@@ -153,27 +153,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('form-status');
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    message: document.getElementById("message").value.trim()
+  };
 
-    const data = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: data,
-    })
-      .then(() => {
-        status.textContent = "✅ Message sent successfully!";
-        status.style.color = "green";
-        form.reset();
-      })
-      .catch(() => {
-        status.textContent = "❌ Failed to send message.";
-        status.style.color = "red";
-      });
+  fetch("YOUR_DEPLOYED_SCRIPT_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.text())
+  .then(() => {
+    document.getElementById("form-status").textContent = "✅ Message sent!";
+    document.getElementById("contactForm").reset();
+  })
+  .catch((err) => {
+    console.error("Error:", err);
+    document.getElementById("form-status").textContent = "❌ Failed to send.";
   });
 });
